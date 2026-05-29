@@ -140,7 +140,7 @@ class PageTemplate:
             if len(diagrams) < 2:
                 continue
 
-            total_box_height = np.sum(d.size[1] for d in diagrams)
+            total_box_height = np.sum(np.fromiter((d.size[1] for d in diagrams), dtype=float))
             col_height = end_y - start_y
             empty_space = col_height - total_box_height
             spacing = empty_space / (len(diagrams) - 1)
